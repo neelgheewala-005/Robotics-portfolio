@@ -885,7 +885,7 @@ robot.MoveJ(home_pose)
 print("Trajectory complete and verified!")`
             },
             2: {
-                title: 'MATLAB Vision - Color-Based Object Detection',
+                title: 'MATLAB Vision - Machine Vision & Image Processing',
                 code: `%% Task 1.1: Reading, displaying, and saving images
 clear; clc; close all;
 
@@ -933,10 +933,10 @@ subplot(1,2,1); imshow(gray_manual); title('Manual grayscale (uint8)');
 gray_builtin = rgb2gray(rgb);
 subplot(1,2,2); imshow(gray_builtin); title('rgb2gray');
 
-% (b) Save PNG with lower bit depths
-imwrite(gray_builtin,'gray_1bit.png','BitDepth',1);
-imwrite(gray_builtin,'gray_2bit.png','BitDepth',2);
-imwrite(gray_builtin,'gray_4bit.png','BitDepth',4);
+% (b) Save PNG with lower bit depths, reload, and view quantization
+imwrite(gray_builtin,'gray_1bit.png','BitDepth',1); % 1-bit (black/white)
+imwrite(gray_builtin,'gray_2bit.png','BitDepth',2); % 2-bit (4 levels)
+imwrite(gray_builtin,'gray_4bit.png','BitDepth',4); % 4-bit (16 levels)
 
 G1 = imread('gray_1bit.png');
 G2 = imread('gray_2bit.png');
@@ -954,22 +954,141 @@ info_pgm = imfinfo('gray.pgm')
 
 % (e) Binary using mean threshold
 T = mean(gray_builtin(:));
-bw = gray_builtin >= T;
-figure('Name','Binary by mean threshold');
-imagesc(bw); axis image off; colormap gray; colorbar;
-title(sprintf('Threshold = %.2f',T));
+bw = gray_builtin >= T; % values are logical: 0/1
+figure('Name','Binary by mean threshold'); imagesc(bw); axis image off; colormap gray; colorbar; title(sprintf('Threshold = %.2f',T));
 
 % (f) RGB → HSV and display channels
-hsvImg = rgb2hsv(rgb);
+hsvImg = rgb2hsv(rgb); % double in [0,1]
 H = hsvImg(:,:,1); S = hsvImg(:,:,2); V = hsvImg(:,:,3);
 figure('Name','HSV Channels');
 subplot(2,2,1); imshow(rgb); title('RGB');
 subplot(2,2,2); imshow(H); title('Hue [0,1]');
 subplot(2,2,3); imshow(S); title('Saturation [0,1]');
-subplot(2,2,4); imshow(V); title('Value [0,1]');`
+subplot(2,2,4); imshow(V); title('Value [0,1]');
+
+%% Task 1.3: Representations of images
+clear; clc; close all;
+
+rgb = imread('Auge.jpg');
+gray = rgb2gray(rgb);
+
+% (a) Same grayscale with three different colormaps
+figure('Name','Three Colormaps');
+subplot(1,3,1); imshow(gray); colormap(gca,'gray'); title('gray');
+subplot(1,3,2); imshow(gray); colormap(gca,'parula'); title('parula');
+subplot(1,3,3); imshow(gray); colormap(gca,'jet'); title('jet');
+
+% (b) 2D surface view with original gray as height
+G = double(gray);
+figure('Name','2D Surface Representation');
+surf(G); shading interp; axis tight; view(45,45);
+colormap gray; colorbar; title('surf(gray) with grayscale colormap');
+hold on;
+
+% Optional: project the image below as a texture (z=0 plane)
+Z0 = zeros(size(G));
+[X,Y] = meshgrid(1:size(G,2), 1:size(G,1));
+surf(X,Y,Z0, G, 'EdgeColor','none'); % project grayscale as color on base plane
+hold off;
+
+%% Task 1.4: Webcam and video recording
+cam = webcam(1);
+properties(cam) % display properties in command window
+preview(cam); % quick live preview (close the preview window to continue)
+pause(2); % brief pause so you can see it
+close(findall(0,'Type','figure','Name','Preview'));
+
+% (b) Repeated snapshots with property modulation
+figure('Name','Webcam Snapshot Loop');
+numFrames = 120; % total frames to capture
+pauseSeconds = 0.05; % delay between frames (controls effective fps)
+
+% Prepare a video writer at ~20 fps
+v = VideoWriter('webcam_demo.mp4','MPEG-4');
+v.FrameRate = 20;
+open(v);
+
+for k = 1:numFrames
+    % Change brightness (if supported) as a sine function
+    try
+        if isprop(cam,'Brightness')
+            cam.Brightness = round(127 + 127*sin(k/360*pi)); % typical range 0..255
+        end
+    catch
+        % Some webcams lock auto-exposure/brightness; ignore errors
+    end
+
+    img = snapshot(cam); % RGB frame
+    imshow(img); title(sprintf('Frame %d / %d',k,numFrames)); drawnow;
+    writeVideo(v, img);
+    pause(pauseSeconds);
+end
+
+close(v);
+
+% (c) Show grayscale and binary examples from live frame
+img = snapshot(cam);
+gray = rgb2gray(img);
+BW = gray > mean(gray(:));
+figure('Name','Gray & Binary from Webcam');
+subplot(1,3,1); imshow(img); title('RGB');
+subplot(1,3,2); imshow(gray); title('Grayscale');
+subplot(1,3,3); imshow(BW); title('Binary (mean threshold)');
+
+% (d) Display extra info
+fprintf('Resolution: %dx%d\\n', size(img,2), size(img,1));
+try
+    if isprop(cam,'FrameRate'); fprintf('Camera FPS (reported): %s\\n', string(cam.FrameRate)); end
+catch
+end
+fprintf('Saved video: webcam_demo.mp4 @ %d fps\\n', v.FrameRate);
+
+clear cam; % release camera
+
+%% Machine Vision Lab 1 – All-in-One Runner
+clear; clc; close all;
+imgFile = 'Auge.jpg';
+assert(isfile(imgFile), 'Place a JPG named peppers.jpg (or edit imgFile).');
+
+% 1.1 Read & Save
+rgb = imread(imgFile); info = imfinfo(imgFile);
+fprintf('Loaded %s | %dx%d | class=%s | range=[%d,%d]\\n', imgFile, info.Width, info.Height, class(rgb), min(rgb(:)), max(rgb(:)));
+imwrite(rgb,'out.png'); imwrite(rgb,'out.tif');
+figure; subplot(1,3,1); imshow(rgb); title('RGB'); subplot(1,3,2); imshow('out.png'); title('PNG'); subplot(1,3,3); imshow('out.tif'); title('TIF');
+
+% 1.2 Gray/Binary/HSV
+grayM = uint8(round(mean(double(rgb),3)));
+grayB = rgb2gray(rgb);
+imwrite(grayB,'q1bit.png','BitDepth',1); imwrite(grayB,'q2bit.png','BitDepth',2); imwrite(grayB,'q4bit.png','BitDepth',4);
+G1=imread('q1bit.png'); G2=imread('q2bit.png'); G4=imread('q4bit.png');
+figure; subplot(2,3,1); imshow(grayM); title('Manual gray'); subplot(2,3,2); imshow(grayB); title('rgb2gray'); subplot(2,3,3); imshow(G4); title('4-bit');
+subplot(2,3,4); imshow(G2); title('2-bit'); subplot(2,3,5); imshow(G1); title('1-bit');
+imwrite(grayB,'gray.pgm'); disp(imfinfo('q4bit.png')); disp(imfinfo('gray.pgm'));
+T = mean(grayB(:)); BW = grayB >= T; figure; imagesc(BW); axis image off; colormap gray; title(sprintf('Binary (T=%.2f)',T));
+hsvI = rgb2hsv(rgb); figure; subplot(2,2,1); imshow(rgb); title('RGB'); subplot(2,2,2); imshow(hsvI(:,:,1)); title('Hue'); subplot(2,2,3); imshow(hsvI(:,:,2)); title('Sat'); subplot(2,2,4); imshow(hsvI(:,:,3)); title('Val');
+
+% 1.3 Representations
+figure; subplot(1,3,1); imshow(grayB); colormap(gca,'gray'); title('gray'); subplot(1,3,2); imshow(grayB); colormap(gca,'parula'); title('parula'); subplot(1,3,3); imshow(grayB); colormap(gca,'jet'); title('jet');
+G = double(grayB); figure; surf(G); shading interp; axis tight; view(45,45); colormap gray; colorbar; title('Surface of gray'); hold on; [X,Y]=meshgrid(1:size(G,2),1:size(G,1)); surf(X,Y,zeros(size(G)),G,'EdgeColor','none'); hold off;
+
+% 1.4 Webcam (skips if none)
+try
+    cams = webcamlist; if isempty(cams), error('No webcam.'); end
+    cam = webcam(1); preview(cam); pause(1); close(findall(0,'Type','figure','Name','Preview'));
+    v = VideoWriter('webcam_demo.mp4','MPEG-4'); v.FrameRate=20; open(v);
+    for k=1:60
+        try, if isprop(cam,'Brightness'), cam.Brightness = round(127+127*sin(k/360*pi)); end, end
+        f = snapshot(cam); imshow(f); title(sprintf('Frame %d',k)); drawnow; writeVideo(v,f); pause(0.03);
+    end
+    close(v); img = snapshot(cam); gray = rgb2gray(img); BW = gray > mean(gray(:));
+    figure; subplot(1,3,1); imshow(img); title('RGB'); subplot(1,3,2); imshow(gray); title('Gray'); subplot(1,3,3); imshow(BW); title('Binary');
+    clear cam; fprintf('Saved video webcam_demo.mp4\\n');
+catch ME
+    warning('Webcam part skipped: %s', ME.message);
+end`
             },
             3: {
-                title: 'Arduino Line Follower - AVR ATmega Control',
+                title: 'Autonomous Line Follower - AVR ATmega C Firmware',
                 code: `#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
@@ -1006,7 +1125,7 @@ void init_io() {
 
 void init_adc() {
     ADMUX = (1 << REFS0); // AVcc reference
-    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC, prescaler 128
 }
 
 uint16_t read_adc(uint8_t channel) {
@@ -1020,7 +1139,7 @@ uint16_t read_adc(uint8_t channel) {
 void init_pwm() {
     // Timer1 Fast PWM 8-bit
     TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM10);
-    TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10);
+    TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10); // Prescaler 64
     OCR1A = 0;
     OCR1B = 0;
 }
@@ -1056,11 +1175,11 @@ int main(void) {
         right_threshold = eeprom_read_word(&eeprom_right_threshold);
     }
 
-    uint8_t isPControl = !(PIND & (1 << PD4));
+    uint8_t isPControl = !(PIND & (1 << PD4)); // Wire bridge check
 
     while (1) {
-        uint16_t left = read_adc(0);
-        uint16_t right = read_adc(1);
+        uint16_t left = read_adc(0);  // A0
+        uint16_t right = read_adc(1); // A1
 
         uint8_t leftIsBlack = (left >= left_threshold);
         uint8_t rightIsBlack = (right >= right_threshold);
@@ -1089,6 +1208,34 @@ int main(void) {
                 PORTB &= ~((1 << M1_DIR) | (1 << M2_DIR));
                 OCR1A = right_speed;
                 OCR1B = left_speed;
+            }
+        } else {
+            // -- Bang-Bang Mode
+            uint16_t pot = read_adc(7); // A7
+            uint8_t speed = pot >> 2;   // 0-255
+
+            if (leftIsBlack && rightIsBlack) {
+                // Both black forward
+                PORTB &= ~((1 << M1_DIR) | (1 << M2_DIR));
+                OCR1A = speed;
+                OCR1B = speed;
+            } else if (!leftIsBlack && !rightIsBlack) {
+                // Both white backward
+                PORTB |= (1 << M1_DIR) | (1 << M2_DIR);
+                OCR1A = speed;
+                OCR1B = speed;
+            } else if (leftIsBlack && !rightIsBlack) {
+                // Turn Left
+                PORTB |= (1 << M1_DIR);
+                PORTB &= ~(1 << M2_DIR);
+                OCR1A = speed;
+                OCR1B = speed;
+            } else if (!leftIsBlack && rightIsBlack) {
+                // Turn Right
+                PORTB &= ~(1 << M1_DIR);
+                PORTB |= (1 << M2_DIR);
+                OCR1A = speed;
+                OCR1B = speed;
             }
         }
     }
