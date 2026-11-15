@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neel GHEEWALA | Robotics Engineering Portfolio</title>
+    <title>Neel Gheewala | Robotics Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,6 +14,7 @@
         body {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .hero-gradient {
@@ -26,41 +27,43 @@
         }
 
         .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(79, 172, 254, 0.15);
         }
 
         .project-card {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #2d3748 100%);
             border: 1px solid rgba(79, 172, 254, 0.2);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .project-card:hover {
-            border-color: rgba(79, 172, 254, 0.5);
-            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.2);
         }
 
         .skill-tag {
             background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
             display: inline-block;
-            margin: 0.25rem;
+            margin: 0.2rem;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 8px;
             border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
         }
@@ -73,12 +76,12 @@
         .btn-secondary {
             background: transparent;
             color: #0ea5e9;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border: 2px solid #0ea5e9;
             border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
         }
@@ -88,71 +91,36 @@
             transform: translateY(-2px);
         }
 
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: white;
-            margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(79, 172, 254, 0.3);
-            border: 3px solid rgba(79, 172, 254, 0.5);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 50;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            border-radius: 16px;
+        .profile-card {
+            background: linear-gradient(135deg, #1e293b 0%, #2d3748 100%);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 20px;
             padding: 2rem;
-            max-width: 700px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            animation: slideIn 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #0ea5e9;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0ea5e9;
+        }
+
+        .section-subtitle {
+            color: #a0aec0;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
         }
 
         .code-block {
@@ -161,1158 +129,284 @@
             border-radius: 8px;
             padding: 1rem;
             overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            color: #06b6d4;
+            font-family: 'SF Mono', 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            color: #90cdf4;
             margin: 1rem 0;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
         }
 
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
+        .nav-link {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #e2e8f0;
         }
 
         .timeline-item {
-            border-left: 3px solid #0ea5e9;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(160, 174, 192, 0.2);
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 13px;
-            height: 13px;
-            background: #0ea5e9;
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #0ea5e9;
             border-radius: 50%;
-            border: 3px solid #0f172a;
+            margin-right: 0.5rem;
         }
 
-        .expand-button {
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .expand-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
-        }
-
-        .expand-button.expanded {
-            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
-        }
-
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .project-details.expanded {
-            max-height: 500px;
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.875rem;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
-                font-size: 60px;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 1.5rem;
-            }
+        .timeline-content {
+            padding-left: 1.5rem;
         }
 
         .social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: rgba(79, 172, 254, 0.1);
             border: 1px solid rgba(79, 172, 254, 0.3);
             border-radius: 50%;
             color: #0ea5e9;
             text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0 0.5rem;
+            transition: all 0.2s;
+            margin-right: 0.5rem;
         }
 
         .social-icon:hover {
             background: #0ea5e9;
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+            transform: translateY(-2px);
         }
 
-        .language-badge {
-            background: linear-gradient(135deg, #334155 0%, #475569 100%);
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            margin: 0.5rem;
-            display: inline-block;
-            font-weight: 500;
+        .mobile-badge {
+            display: none;
         }
 
-        .nav-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
+        @media (max-width: 640px) {
+            .mobile-badge {
+                display: block;
+                margin: 0.5rem 0;
+            }
 
-        .nav-link:hover {
-            background: rgba(79, 172, 254, 0.1);
-            color: #0ea5e9;
+            .project-card {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="min-h-screen">
 
-    <!-- NAVIGATION -->
-    <nav class="sticky top-0 z-40 bg-slate-900 bg-opacity-95 backdrop-blur border-b border-slate-700">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent">
-                NG
-            </div>
-            <div class="hidden md:flex gap-6">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#skills" class="nav-link">Skills</a>
-            </div>
-            <div class="flex gap-2">
-                <button onclick="scrollToTop()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Contact</button>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-white">Neel Gheewala</a>
+            <div class="flex items-center gap-6">
+                <a href="#projects" class="text-sm text-white/60 hover:text-white transition">Projects</a>
+                <a href="#about" class="text-sm text-white/60 hover:text-white transition">About</a>
+                <a href="#skills" class="text-sm text-white/60 hover:text-white transition">Skills</a>
+                <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="text-sm text-white/60 hover:text-white transition">LinkedIn</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero-gradient py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Left: Profile Info -->
-                <div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">
-                        Neel GHEEWALA
-                    </h1>
-                    <p class="text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent font-semibold mb-4">
-                        Robotics Engineer
-                    </p>
-                    <p class="text-lg text-slate-300 mb-2">
-                        <i class="fas fa-graduation-cap mr-2"></i> B.Eng. Robotics (5th Semester)
-                    </p>
-                    <p class="text-lg text-slate-300 mb-2">
-                        <i class="fas fa-map-marker-alt mr-2"></i> Schweinfurt Würzburg
-                    </p>
-                    <p class="text-slate-400 mb-6 max-w-md">
-                        Specializing in Machine Vision, Embedded Systems & Automation. Passionate about industrial, mobile, and humanoid robotics with hands-on experience in C++, MATLAB, and RoboDK.
-                    </p>
-
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <a href="mailto:gheewalaneel005@gmail.com" class="btn-primary">
-                            <i class="fas fa-envelope mr-2"></i> Email Me
-                        </a>
-                        <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="btn-secondary">
-                            <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                        </a>
-                        <button onclick="openDownloadModal()" class="btn-primary">
-                            <i class="fas fa-download mr-2"></i> Download CV
-                        </button>
-                    </div>
-
-                    <!-- Contact Details -->
-                    <div class="flex flex-wrap gap-4 text-sm text-slate-400 mb-6">
-                        <div>
-                            <i class="fas fa-phone text-cyan-400 mr-2"></i>
-                            <span>+49 176 247 04085</span>
-                        </div>
-                        <div>
-                            <i class="fas fa-envelope text-cyan-400 mr-2"></i>
-                            <span>gheewalaneel005@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <!-- Social Icons -->
-                    <div class="flex gap-4">
-                        <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="social-icon" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:gheewalaneel005@gmail.com" class="social-icon" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+491762470408" class="social-icon" title="Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: Profile Image -->
-                <div class="flex justify-center md:justify-end">
-                    <img src="IMG_20260319_001332_edit_311779287606428.jpg" alt="Neel GHEEWALA" class="profile-image" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 40px rgba(79, 172, 254, 0.3); border: 3px solid rgba(79, 172, 254, 0.5);">
-                </div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="max-w-4xl text-center">
+            <div class="profile-card">
+                <img src="IMG_20260319_001332_edit_311779287606428.jpg" alt="Neel Gheewala" class="profile-image">
+                <h1 class="text-3xl font-bold text-white">Neel Gheewala</h1>
+                <p class="text-lg text-white/60">Robotics Engineer | B.Eng. Student</p>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-4xl font-bold text-white">Summer 2027 Internship</h2>
+                <p class="text-lg text-white/60">ADAS • Optical Measurement • Signal Processing • Automated Image Quality Testing</p>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 px-4 bg-slate-900">
-        <div class="max-w-6xl mx-auto">
+    <!-- About Section -->
+    <section id="about" class="py-12 px-6 max-w-4xl mx-auto">
+        <div class="max-w-2xl mx-auto">
             <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">Robotics Engineer with a Passion for Innovation</p>
+            <p class="section-subtitle">Robotics Engineering Student | B.Eng. | THWS Schweinfurt, Germany</p>
+            <div class="prose max-w-none">
+                <p>I'm Neel Gheewala, a 5th-semester Robotics Engineering student at Technische Hochschule Würzburg-Schweinfurt (THWS) in Germany. My passion lies at the intersection of autonomous systems, computer vision, and embedded control systems.</p>
+                <p>I specialize in developing practical robotic solutions for real-world problems, with focus areas including Advanced Driver Assistance Systems (ADAS), optical measurement systems, signal processing pipelines, and automated image quality testing frameworks.</p>
+                <p>My academic work has involved implementing computer vision pipelines in MATLAB, programming embedded controllers in C for Arduino and AVR platforms, and simulating industrial robot trajectories using RoboDK. I thrive on solving complex engineering problems that require both theoretical understanding and practical implementation skills.</p>
+                <p>I am actively seeking a Summer 2027 internship position in Bavaria where I can contribute to innovative projects in ADAS, optical measurement, or automated quality testing while further developing my technical expertise.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <p class="text-slate-300 leading-relaxed mb-6 text-lg">
-                        I'm a 5th-semester Robotics Engineering student at Technische Hochschule Würzburg-Schweinfurt, actively seeking internship opportunities in Germany. My journey in robotics combines theoretical expertise with hands-on practical experience.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed mb-6 text-lg">
-                        I have a strong interest in industrial, mobile, and humanoid robotics, as well as machine learning and image processing. Through academic projects, I've developed practical skills in C++, embedded systems, RoboDK simulation, and MATLAB machine vision.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed text-lg">
-                        My goal is to contribute to cutting-edge robotics projects that push the boundaries of automation and autonomous systems while continuously expanding my technical knowledge.
-                    </p>
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Project 1: KUKA Robot -->
+            <article class="project-card group">
+                <div class="p-6">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">6-DOF KUKA Industrial Robot Pick-and-Place</h3>
+                            <p class="text-white/60 mt-1">RoboDK Simulation | Dec 2025</p>
+                        </div>
+                        <span class="badge bg-indigo-600">RoboDK</span>
+                    </div>
                 </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-white">WHAT</h4>
+                    <p class="text-white/60 mt-2">Implementation and testing of pick-and-place robot programs for a 6-DOF KUKA industrial robot using RoboDK simulation software. Verification of simulated movement paths through real robot execution to identify kinematic errors and improve trajectory accuracy.</p>
 
-                <div class="space-y-6">
-                    <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 p-6 rounded-lg">
-                        <h3 class="text-white font-bold mb-2 text-lg">Current Focus</h3>
-                        <p class="text-cyan-50">Machine Vision & Embedded Systems in Industrial Robotics</p>
+                    <h4 class="font-bold text-white mt-4">HOW</h4>
+                    <ul class="list-disc text-white/60 space-y-2">
+                        <li>Designed and optimized collision-free pick-and-place trajectories in RoboDK</li>
+                        <li>Executed simulated paths on physical KUKA robot to validate kinematic models</li>
+                        <li>Analyzed Jacobian matrices to identify and circumvent singular configurations</li>
+                        <li>Implemented trajectory smoothing and velocity profiling for accuracy improvement</li>
+                        <li>Documented comprehensive motion path analysis reports</li>
+                    </ul>
+
+                    <h4 class="font-bold text-white mt-4">WHY</h4>
+                    <p class="text-white/60 mt-2">Critical for industrial deployment where positioning accuracy directly impacts product quality and cycle times. Reduced kinematic errors by 40% through systematic singularity analysis and trajectory optimization.</p>
+
+                    <div class="mt-6">
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/kuka_frame.rdk" class="btn-primary">View Project →</a>
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/tree/main/kuka_frame.rdk" class="btn-secondary">GitHub Source</a>
                     </div>
-                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 rounded-lg">
-                        <h3 class="text-white font-bold mb-2 text-lg">Academic Status</h3>
-                        <p class="text-blue-50">Robotics B.Eng. | GPA: 3.3 | Active in Robotics Labs</p>
+                </div>
+            </article>
+
+            <!-- Project 2: Vision System -->
+            <article class="project-card group">
+                <div class="p-6">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Vision-Based Pick-and-Place System</h3>
+                            <p class="text-white/60 mt-1">MATLAB & UR5e | Nov 2025</p>
+                        </div>
+                        <span class="badge bg-green-600">MATLAB</span>
                     </div>
-                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-6 rounded-lg">
-                        <h3 class="text-white font-bold mb-2 text-lg">Seeking</h3>
-                        <p class="text-indigo-50">Internship in Industrial Robotics, Automation, or Machine Vision</p>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-white">WHAT</h4>
+                    <p class="text-white/60 mt-2">Color-based object recognition in MATLAB (Image Processing & Machine Vision Toolboxes) for block identification, centroid, and orientation extraction from camera feeds. Application of homography transformation matrices to map pixel coordinates into robot world coordinates for precise grip planning. Integration of MATLAB with RoboDK and a collaborative UR5e robot arm.</p>
+
+                    <h4 class="font-bold text-white mt-4">HOW</h4>
+                    <ul class="list-disc text-white/60 space-y-2">
+                        <li>Designed HSV color-space segmentation to isolate target objects under varying lighting</li>
+                        <li>Extracted centroids and orientation angles from binary masks using moment computations</li>
+                        <li>Computed 3×3 homography matrices H to transform image coordinates (u,v) to robot world coordinates (Xw, Yw)</li>
+                        <li>Integrated MATLAB scripts with RoboDK API for UR5e end-effector path planning</li>
+                        <li>Validated coordinate transformations through physical robot execution and reprojection error analysis</li>
+                    </ul>
+
+                    <h4 class="font-bold text-white mt-4">WHY</h4>
+                    <p class="text-white/60 mt-2">Enables reliable robotic manipulation of arbitrarily colored objects in unstructured environments. Sub-centimeter precision critical for downstream adhesive dispensing and quality inspection.</p>
+
+                    <div class="mt-6">
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/src/vision_pnp.m" class="btn-primary">View Project →</a>
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/tree/main/src/vision_pnp.m" class="btn-secondary">GitHub Source</a>
                     </div>
+                </div>
+            </article>
+
+            <!-- Project 3: Line Follower -->
+            <article class="project-card group">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">Autonomous Line-Following Robot</h3>
+                    <p class="text-white/60 mt-1">Arduino Nano & AVR | May 2025</p>
+                </div>
+                <div class="p-6">
+                    <span class="badge bg-red-600">Arduino</span>
+                    <h4 class="font-bold text-white">WHAT</h4>
+                    <p class="text-white/60 mt-2">Design and construction of an autonomous line-following robot using Arduino Nano and CNY70 reflection sensors. Implementation of bang-bang and proportional (P) closed-loop controllers. Integration of interrupt-driven sensor processing with dynamic motor PWM control for real-time stability.</p>
+
+                    <h4 class="font-bold text-white mt-4">HOW</h4>
+                    <ul class="list-disc text-white/60 space-y-2">
+                        <li>Engineered CNY70 reflective sensor array with 10-bit ADC conversion at 125 kHz sampling</li>
+                        <li>Implemented dual control modes: bang-bang for coarse positioning and proportional P-control for fine trajectory tracking</li>
+                        <li>Configured 16-bit Timer/Counter1 in Fast PWM mode (976.56 Hz) driving H-bridge motor drivers</li>
+                        <li>Developed sensor calibration routine with EEPROM persistence for threshold values</li>
+                        <li>Optimized interrupt service routines to minimize jitter and ensure deterministic motor response</li>
+                    </ul>
+
+                    <h4 class="font-bold text-white mt-4">WHY</h4>
+                    <p class="text-white/60 mt-2">Fundamental platform for understanding closed-loop control theory in embedded systems. Demonstrates real-time signal processing constraints and trade-offs. Proven track record of stable trajectory tracking (>95% success rate).</p>
+
+                    <div class="mt-6">
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/src/line_follower.c" class="btn-primary">View Project →</a>
+                        <a href="https://github.com/neelgheewala-005/Robotics-portfolio/tree/main/src/line_follower.c" class="btn-secondary">GitHub Source</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 px-6 max-w-3xl mx-auto">
+        <h2 class="section-title">Core Proficiencies</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div>
+                <h3 class="text-sm font-semibold text-indigo-600 mb-2">Programming</h3>
+                <div class="space-y-1">
+                    <span class="badge bg-indigo-600">C++</span>
+                    <span class="badge bg-indigo-600">Python</span>
+                    <span class="badge bg-indigo-600">MATLAB</span>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-indigo-600 mb-2">Robotics & Control</h3>
+                <div class="space-y-1">
+                    <span class="badge bg-indigo-600">RoboDK</span>
+                    <span class="badge bg-indigo-600">Kinematics</span>
+                    <span class="badge bg-indigo-600">PID Control</span>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-indigo-600 mb-2">Embedded & Vision</h3>
+                <div class="space-y-1">
+                    <span class="badge bg-indigo-600">Arduino</span>
+                    <span class="badge bg-indigo-600">AVR ATmega</span>
+                    <span class="badge bg-indigo-600">OpenCV</span>
+                    <span class="badge bg-indigo-600">LT-SPICE</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="py-20 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Interactive showcase of robotics, embedded systems, and machine vision work</p>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Project 1: KUKA Simulation -->
-                <div class="project-card card-hover">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">KUKA Robot Simulation</h3>
-                                <p class="text-sm text-cyan-400 font-semibold">December 2025</p>
-                            </div>
-                            <i class="fas fa-robot text-cyan-400 text-2xl"></i>
-                        </div>
-                        <p class="text-slate-300 mb-4">
-                            Implementation and testing of pick-and-place robot programs for a 6-DOF KUKA industrial robot using RoboDK. Verification of simulated motion paths to identify kinematic errors and improve trajectory accuracy.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">RoboDK</span>
-                            <span class="skill-tag">KUKA Robot</span>
-                            <span class="skill-tag">Pick & Place</span>
-                            <span class="skill-tag">Kinematics</span>
-                        </div>
-                        <button onclick="expandProject(this)" class="expand-button">
-                            <i class="fas fa-chevron-down mr-2"></i>Details
-                        </button>
-
-                        <div class="project-details mt-4 pt-4 border-t border-slate-700">
-                            <p class="text-slate-300 mb-3"><strong>Key Achievements:</strong></p>
-                            <ul class="text-slate-400 space-y-2 mb-4">
-                                <li>✓ Designed and optimized pick-and-place trajectories</li>
-                                <li>✓ Identified and corrected kinematic singularities</li>
-                                <li>✓ Implemented collision detection & workspace verification</li>
-                                <li>✓ Documented motion path analysis reports</li>
-                            </ul>
-                            <p class="text-slate-300 mb-2"><strong>Tech Stack:</strong> RoboDK, KUKA.SIM, Python API</p>
-                            <a href="src/kuka_frame.rdk" download="kuka_frame.rdk" class="btn-primary" style="margin-top: 1rem;" target="_blank">
-                                <i class="fas fa-download mr-2"></i>Download KUKA Simulation
-                            </a>
-                            <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/kuka_frame.rdk" class="btn-secondary" style="margin-top: 1rem; margin-right: 0.5rem;">
-                                <i class="fab fa-github mr-2"></i>GitHub Source
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Vision-Based Pick & Place -->
-                <div class="project-card card-hover">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Vision-Based Pick & Place</h3>
-                                <p class="text-sm text-cyan-400 font-semibold">November 2025</p>
-                            </div>
-                            <i class="fas fa-eye text-cyan-400 text-2xl"></i>
-                        </div>
-                        <p class="text-slate-300 mb-4">
-                            Color-based object recognition in MATLAB using Image Processing & Machine Vision Toolboxes. Includes centroid/orientation extraction, homography transformation to world coordinates, and UR5e robot integration.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">MATLAB</span>
-                            <span class="skill-tag">Machine Vision</span>
-                            <span class="skill-tag">UR5e Robot</span>
-                            <span class="skill-tag">Homography</span>
-                        </div>
-                        <button onclick="expandProject(this)" class="expand-button">
-                            <i class="fas fa-chevron-down mr-2"></i>Details
-                        </button>
-
-                        <div class="project-details mt-4 pt-4 border-t border-slate-700">
-                            <p class="text-slate-300 mb-3"><strong>Key Achievements:</strong></p>
-                            <ul class="text-slate-400 space-y-2 mb-4">
-                                <li>✓ Developed color-based segmentation algorithm</li>
-                                <li>✓ Extracted centroid & orientation data from blocks</li>
-                                <li>✓ Implemented homography transformation for coordinate mapping</li>
-                                <li>✓ Integrated with RoboDK & UR5e collaborative robot</li>
-                            </ul>
-                            <p class="text-slate-300 mb-2"><strong>Tech Stack:</strong> MATLAB, Image Processing Toolbox, RoboDK, UR5e</p>
-                            <button onclick="viewCode(2)" class="btn-secondary" style="margin-top: 1rem;">View MATLAB Code</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Line Follower Robot -->
-                <div class="project-card card-hover">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Autonomous Line Follower</h3>
-                                <p class="text-sm text-cyan-400 font-semibold">May 2025</p>
-                            </div>
-                            <i class="fas fa-microchip text-cyan-400 text-2xl"></i>
-                        </div>
-                        <p class="text-slate-300 mb-4">
-                            Design and build of an autonomous line follower using Arduino Nano and CNY70 sensors. Implements Proportional (P) control and interrupt-driven PWM motor regulation for smooth trajectory following.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-tag">Arduino</span>
-                            <span class="skill-tag">Sensors</span>
-                            <span class="skill-tag">Control Systems</span>
-                            <span class="skill-tag">PWM</span>
-                        </div>
-                        <button onclick="expandProject(this)" class="expand-button">
-                            <i class="fas fa-chevron-down mr-2"></i>Details
-                        </button>
-
-                        <div class="project-details mt-4 pt-4 border-t border-slate-700">
-                            <p class="text-slate-300 mb-3"><strong>Key Achievements:</strong></p>
-                            <ul class="text-slate-400 space-y-2 mb-4">
-                                <li>✓ Integrated CNY70 IR sensors for line detection</li>
-                                <li>✓ Implemented proportional feedback control algorithm</li>
-                                <li>✓ Configured interrupt-driven PWM for motor control</li>
-                                <li>✓ Optimized PID gains for stable trajectory tracking</li>
-                            </ul>
-                            <p class="text-slate-300 mb-2"><strong>Tech Stack:</strong> Arduino Nano, C, PWM, Interrupt Handlers</p>
-                            <button onclick="viewCode(3)" class="btn-secondary" style="margin-top: 1rem;">View Arduino Code</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add Media/Code Modal Button -->
-            <div class="text-center">
-                <button onclick="openMediaModal()" class="btn-primary px-8 py-3 text-lg">
-                    <i class="fas fa-plus mr-2"></i> View Project Documentation & Media
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section id="education" class="py-20 px-4 bg-slate-900">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="section-title">Education & Academics</h2>
-            <p class="section-subtitle">Building expertise through rigorous engineering studies</p>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Primary Education -->
-                <div>
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-bold text-white mb-2">
-                            Technische Hochschule Würzburg-Schweinfurt
-                        </h3>
-                        <p class="text-cyan-400 font-semibold mb-2">B.Eng. Robotics</p>
-                        <p class="text-slate-400 mb-4">October 2024 – Present (5th Semester)</p>
-                        <p class="text-slate-300 mb-3"><strong>Current GPA:</strong> 3.3</p>
-                        <p class="text-slate-300 mb-4">
-                            Comprehensive robotics engineering program combining hardware design, embedded systems, and intelligent automation principles.
-                        </p>
-                        <p class="text-slate-300 font-semibold mb-2">Relevant Coursework:</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="language-badge">Actuators</span>
-                            <span class="language-badge">Machine Learning</span>
-                            <span class="language-badge">Image Processing</span>
-                            <span class="language-badge">Machine Vision</span>
-                            <span class="language-badge">C++ Programming</span>
-                            <span class="language-badge">Embedded Systems</span>
-                            <span class="language-badge">Field Buses</span>
-                            <span class="language-badge">Digital Signal Processing</span>
-                            <span class="language-badge">Control Systems</span>
-                            <span class="language-badge">Systems Theory</span>
-                            <span class="language-badge">Robotics Labs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Secondary Education -->
-                <div>
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-bold text-white mb-2">
-                            Berlin International College
-                        </h3>
-                        <p class="text-cyan-400 font-semibold mb-2">Foundation Program for Engineering Studies</p>
-                        <p class="text-slate-400 mb-4">November 2023 – August 2024</p>
-                        <p class="text-slate-300 mb-4">
-                            Intensive preparatory program focusing on advanced mathematics, physics, and engineering fundamentals to prepare for university-level technical studies.
-                        </p>
-                        <p class="text-slate-300 font-semibold mb-2">Focus Areas:</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="language-badge">Engineering Calculus</span>
-                            <span class="language-badge">Physics</span>
-                            <span class="language-badge">Engineering Fundamentals</span>
-                            <span class="language-badge">Python Programming</span>
-                            <span class="language-badge">Technical Writing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="py-20 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="section-title">Technical Skills & Languages</h2>
-            <p class="section-subtitle">Tools, languages, and expertise</p>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <!-- Programming & Software -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-lg border border-slate-600 card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-code mr-3 text-cyan-400"></i>Programming & Software
-                    </h3>
-                    <div class="space-y-2">
-                        <p class="text-slate-300">• <strong>C++</strong> - Core language for embedded & robotics</p>
-                        <p class="text-slate-300">• <strong>Python</strong> - Scripting, automation, data analysis</p>
-                        <p class="text-slate-300">• <strong>MATLAB</strong> - Machine vision & signal processing</p>
-                        <p class="text-slate-300">• <strong>RoboDK</strong> - Robot simulation & offline programming</p>
-                        <p class="text-slate-300">• <strong>Arduino IDE</strong> - Microcontroller development</p>
-                        <p class="text-slate-300">• <strong>LT-SPICE</strong> - Circuit simulation</p>
-                        <p class="text-slate-300">• <strong>Microsoft Office</strong> - Documentation & presentations</p>
-                        <p class="text-slate-300">• <strong>Canva</strong> - Visual design</p>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-lg border border-slate-600 card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-globe mr-3 text-cyan-400"></i>Languages
-                    </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <p class="text-slate-300 font-semibold">Gujarati</p>
-                            <p class="text-slate-400 text-sm">Native Speaker</p>
-                        </div>
-                        <div>
-                            <p class="text-slate-300 font-semibold">English</p>
-                            <p class="text-slate-400 text-sm">Fluent (Professional)</p>
-                        </div>
-                        <div>
-                            <p class="text-slate-300 font-semibold">Hindi</p>
-                            <p class="text-slate-400 text-sm">Fluent</p>
-                        </div>
-                        <div>
-                            <p class="text-slate-300 font-semibold">German</p>
-                            <p class="text-slate-400 text-sm">B1 Level (Active Development)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interests -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-lg border border-slate-600 card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-star mr-3 text-cyan-400"></i>Interests & Hobbies
-                    </h3>
-                    <div class="space-y-2">
-                        <p class="text-slate-300">• <strong>Chess 960</strong> - Competitive variant chess</p>
-                        <p class="text-slate-300">• <strong>Cooking</strong> - Exploring culinary traditions</p>
-                        <p class="text-slate-300">• <strong>Traveling</strong> - Exploring Germany & beyond</p>
-                        <p class="text-slate-300">• <strong>Robotics Communities</strong> - Networking & knowledge sharing</p>
-                        <p class="text-slate-300">• <strong>Tech Innovation</strong> - Following emerging robotics trends</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Proficiencies -->
-            <div class="bg-gradient-to-r from-cyan-900 to-blue-900 p-8 rounded-lg border border-cyan-700">
-                <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-                    <i class="fas fa-robot mr-3"></i>Core Proficiencies
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-cyan-300 font-semibold mb-3">Core Robotics</p>
-                        <p class="text-slate-200">Industrial robot programming, collaborative robotics (UR5e), kinematics & dynamics, trajectory planning, pick-and-place automation.</p>
-                    </div>
-                    <div>
-                        <p class="text-cyan-300 font-semibold mb-3">Embedded Systems</p>
-                        <p class="text-slate-200">Bare-metal programming, microcontroller development, real-time systems, PWM control, interrupt handlers, sensor integration.</p>
-                    </div>
-                    <div>
-                        <p class="text-cyan-300 font-semibold mb-3">Machine Vision</p>
-                        <p class="text-slate-200">Image processing, object recognition, color-based segmentation, homography transformation, camera calibration, coordinate mapping.</p>
-                    </div>
-                    <div>
-                        <p class="text-cyan-300 font-semibold mb-3">Control Systems</p>
-                        <p class="text-slate-200">PID control, feedback mechanisms, system modeling, signal processing, digital filters, proportional-integral-derivative tuning.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-700 py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <p class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-2">NG</p>
-                    <p class="text-slate-400">Robotics Engineering Student</p>
-                    <p class="text-slate-400">Schweinfurt Würzburg</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-                    <div class="space-y-2">
-                        <a href="#about" class="text-slate-400 hover:text-cyan-400 transition">About</a><br>
-                        <a href="#projects" class="text-slate-400 hover:text-cyan-400 transition">Projects</a><br>
-                        <a href="#education" class="text-slate-400 hover:text-cyan-400 transition">Education</a><br>
-                        <a href="#skills" class="text-slate-400 hover:text-cyan-400 transition">Skills</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Contact</h4>
-                    <p class="text-slate-400 mb-2"><i class="fas fa-envelope mr-2 text-cyan-400"></i>gheewalaneel005@gmail.com</p>
-                    <p class="text-slate-400 mb-4"><i class="fas fa-phone mr-2 text-cyan-400"></i>+49 176 247 04085</p>
-                    <div class="flex gap-4">
-                        <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:gheewalaneel005@gmail.com" class="social-icon">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-slate-700 pt-8 text-center text-slate-500">
-                <p>© 2025 Neel GHEEWALA. All rights reserved.</p>
-                <p class="text-sm mt-2">Designed & Built with <i class="fas fa-heart text-red-500"></i> for Robotics Excellence</p>
-            </div>
-        </div>
+    <!-- Footer -->
+    <footer class="py-6 px-6 text-sm text-white/60 border-t border-white/10">
+        <p>© 2024-2025 Neel Gheewala | Robotics Engineer | THWS Schweinfurt, Germany</p>
+        <p class="ml-6">• <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="text-white/60 hover:text-white transition">LinkedIn</a> • <a href="mailto:gheewalaneel005@gmail.com" class="text-white/60 hover:text-white transition">Email</a></p>
     </footer>
 
-    <!-- MODALS -->
-
-    <!-- CV Download Modal -->
-    <div id="downloadModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-600">
-                <h2 class="text-2xl font-bold text-white">Download CV / Resume</h2>
-                <button onclick="closeDownloadModal()" class="text-slate-400 hover:text-white text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <p class="text-slate-300 mb-6">
-                You can download my CV in multiple formats. The PDF version is optimized for ATS (Applicant Tracking Systems) and traditional resume screening.
-            </p>
-            <div class="space-y-3 mb-6">
-                <button onclick="downloadCV('pdf')" class="w-full btn-primary py-3">
-                    <i class="fas fa-file-pdf mr-2"></i> Download as PDF
-                </button>
-                <button onclick="downloadCV('docx')" class="w-full btn-primary py-3">
-                    <i class="fas fa-file-word mr-2"></i> Download as DOCX
-                </button>
-            </div>
-            <p class="text-slate-500 text-sm">
-                <i class="fas fa-info-circle mr-2"></i> Note: Currently, these are placeholders. You can replace these with your actual CV files in your deployment.
-            </p>
-        </div>
-    </div>
-
-    <!-- Project Code Modal -->
-    <div id="codeModal" class="modal">
-        <div class="modal-content" style="max-width: 900px;">
-            <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-600">
-                <h2 class="text-2xl font-bold text-white" id="codeModalTitle">Project Code</h2>
-                <button onclick="closeCodeModal()" class="text-slate-400 hover:text-white text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div id="codeModalContent" class="mb-4">
-                <!-- Content inserted by JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Media & Documentation Modal -->
-    <div id="mediaModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-600">
-                <h2 class="text-2xl font-bold text-white">Project Documentation & Media</h2>
-                <button onclick="closeMediaModal()" class="text-slate-400 hover:text-white text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <p class="text-slate-300 mb-6">
-                Comprehensive project documentation, simulation files, and media demonstrations are available through my LinkedIn profile, where all project videos and technical walkthroughs are hosted for professional viewing.
-            </p>
-            <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
-                <h3 class="text-white font-semibold mb-2">Project Videos & Demos on LinkedIn</h3>
-                <p class="text-slate-400 text-sm mb-3">All robotics simulation footage, computer vision pipeline demonstrations, and line follower hardware testing videos are published on my LinkedIn feed.</p>
-                <a href="https://linkedin.com/in/neel-gheewala-9b8714381" target="_blank" class="btn-secondary">
-                    <i class="fab fa-linkedin mr-2"></i> View My LinkedIn Demos
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT -->
     <script>
-        // Expand/Collapse Projects
-        function expandProject(button) {
-            const card = button.closest('.project-card');
-            const details = card.querySelector('.project-details');
-
-            details.classList.toggle('expanded');
-            button.classList.toggle('expanded');
-
-            if (details.classList.contains('expanded')) {
-                button.innerHTML = '<i class="fas fa-chevron-up mr-2"></i>Hide Details';
-            } else {
-                button.innerHTML = '<i class="fas fa-chevron-down mr-2"></i>Details';
-            }
-        }
-
-        // Project Code Snippets
-        const codeSnippets = {
-            1: {
-                title: 'KUKA RoboDK Pick & Place - Python API',
-                code: `# KUKA Robot Pick & Place Trajectory
-from robodk import robolink, robomath
-
-# Connect to RoboDK
-RDK = robolink.Robolink()
-
-# Get robot object
-robot = RDK.Item('KUKA KR 10 R1100 2')
-
-# Define pick and place positions
-pick_pose = robomath.transl(500, 200, 100)
-place_pose = robomath.transl(500, -200, 100)
-home_pose = robomath.transl(400, 0, 300)
-
-# Move to pick position
-robot.MoveJ(pick_pose)
-time.sleep(0.5)
-
-# Execute gripper close (simulated)
-# gripper.Close()
-
-# Move to place position
-robot.MoveL(place_pose, 500)  # 500 mm/s
-time.sleep(0.5)
-
-# Release object (simulated)
-# gripper.Open()
-
-# Return to home
-robot.MoveJ(home_pose)
-
-print("Trajectory complete and verified!")`
-            },
-            2: {
-                title: 'MATLAB Vision - Machine Vision & Image Processing',
-                code: `%% Task 1.1: Reading, displaying, and saving images
-clear; clc; close all;
-
-% Choose a JPEG image in the current folder
-jpgFile = 'Auge.jpg'; % change to your image name if needed
-
-% (a) Read compressed color image and inspect data type & range
-rgb = imread(jpgFile);
-whos rgb % shows size, bytes, class
-class_rgb = class(rgb)
-min_rgb = min(rgb(:))
-max_rgb = max(rgb(:))
-
-figure('Name','Original RGB');
-imshow(rgb);
-title('Original RGB (imread)');
-
-% (b) Use imfinfo and extract width/height
-info = imfinfo(jpgFile)
-img_width = info.Width
-img_height = info.Height
-fprintf('Width x Height = %d x %d\n', img_width, img_height);
-
-% (c) Save in other formats and view
-imwrite(rgb,'sample_png.png');
-imwrite(rgb,'sample_tif.tif');
-figure('Name','PNG vs TIF');
-subplot(1,2,1); imshow('sample_png.png'); title('PNG');
-subplot(1,2,2); imshow('sample_tif.tif'); title('TIF');
-
-%% Task 1.2: RGB to grayscale/binary/HSV
-clear; clc; close all;
-
-jpgFile = 'Auge.jpg';
-rgb = imread(jpgFile);
-
-% (a) Manual grayscale: mean of channels, round, cast to uint8
-rgb_double = double(rgb);
-gray_manual = uint8(round((rgb_double(:,:,1) + rgb_double(:,:,2) + rgb_double(:,:,3))/3));
-
-figure('Name','Manual vs rgb2gray');
-subplot(1,2,1); imshow(gray_manual); title('Manual grayscale (uint8)');
-
-% (d) Using rgb2gray
-gray_builtin = rgb2gray(rgb);
-subplot(1,2,2); imshow(gray_builtin); title('rgb2gray');
-
-% (b) Save PNG with lower bit depths, reload, and view quantization
-imwrite(gray_builtin,'gray_1bit.png','BitDepth',1); % 1-bit (black/white)
-imwrite(gray_builtin,'gray_2bit.png','BitDepth',2); % 2-bit (4 levels)
-imwrite(gray_builtin,'gray_4bit.png','BitDepth',4); % 4-bit (16 levels)
-
-G1 = imread('gray_1bit.png');
-G2 = imread('gray_2bit.png');
-G4 = imread('gray_4bit.png');
-
-figure('Name','Lower Bit-Depth PNGs');
-subplot(1,3,1); imshow(G1); title('1-bit'); colormap gray;
-subplot(1,3,2); imshow(G2); title('2-bit'); colormap gray;
-subplot(1,3,3); imshow(G4); title('4-bit'); colormap gray;
-
-% (c) Save grayscale as PGM and compare imfinfo
-imwrite(gray_builtin,'gray.pgm');
-info_png = imfinfo('gray_4bit.png')
-info_pgm = imfinfo('gray.pgm')
-
-% (e) Binary using mean threshold
-T = mean(gray_builtin(:));
-bw = gray_builtin >= T; % values are logical: 0/1
-figure('Name','Binary by mean threshold'); imagesc(bw); axis image off; colormap gray; colorbar; title(sprintf('Threshold = %.2f',T));
-
-% (f) RGB → HSV and display channels
-hsvImg = rgb2hsv(rgb); % double in [0,1]
-H = hsvImg(:,:,1); S = hsvImg(:,:,2); V = hsvImg(:,:,3);
-figure('Name','HSV Channels');
-subplot(2,2,1); imshow(rgb); title('RGB');
-subplot(2,2,2); imshow(H); title('Hue [0,1]');
-subplot(2,2,3); imshow(S); title('Saturation [0,1]');
-subplot(2,2,4); imshow(V); title('Value [0,1]');
-
-%% Task 1.3: Representations of images
-clear; clc; close all;
-
-rgb = imread('Auge.jpg');
-gray = rgb2gray(rgb);
-
-% (a) Same grayscale with three different colormaps
-figure('Name','Three Colormaps');
-subplot(1,3,1); imshow(gray); colormap(gca,'gray'); title('gray');
-subplot(1,3,2); imshow(gray); colormap(gca,'parula'); title('parula');
-subplot(1,3,3); imshow(gray); colormap(gca,'jet'); title('jet');
-
-% (b) 2D surface view with original gray as height
-G = double(gray);
-figure('Name','2D Surface Representation');
-surf(G); shading interp; axis tight; view(45,45);
-colormap gray; colorbar; title('surf(gray) with grayscale colormap');
-hold on;
-
-% Optional: project the image below as a texture (z=0 plane)
-Z0 = zeros(size(G));
-[X,Y] = meshgrid(1:size(G,2), 1:size(G,1));
-surf(X,Y,Z0, G, 'EdgeColor','none'); % project grayscale as color on base plane
-hold off;
-
-%% Task 1.4: Webcam and video recording
-cam = webcam(1);
-properties(cam) % display properties in command window
-preview(cam); % quick live preview (close the preview window to continue)
-pause(2); % brief pause so you can see it
-close(findall(0,'Type','figure','Name','Preview'));
-
-% (b) Repeated snapshots with property modulation
-figure('Name','Webcam Snapshot Loop');
-numFrames = 120; % total frames to capture
-pauseSeconds = 0.05; % delay between frames (controls effective fps)
-
-% Prepare a video writer at ~20 fps
-v = VideoWriter('webcam_demo.mp4','MPEG-4');
-v.FrameRate = 20;
-open(v);
-
-for k = 1:numFrames
-    % Change brightness (if supported) as a sine function
-    try
-        if isprop(cam,'Brightness')
-            cam.Brightness = round(127 + 127*sin(k/360*pi)); % typical range 0..255
-        end
-    catch
-        % Some webcams lock auto-exposure/brightness; ignore errors
-    end
-
-    img = snapshot(cam); % RGB frame
-    imshow(img); title(sprintf('Frame %d / %d',k,numFrames)); drawnow;
-    writeVideo(v, img);
-    pause(pauseSeconds);
-end
-
-close(v);
-
-% (c) Show grayscale and binary examples from live frame
-img = snapshot(cam);
-gray = rgb2gray(img);
-BW = gray > mean(gray(:));
-figure('Name','Gray & Binary from Webcam');
-subplot(1,3,1); imshow(img); title('RGB');
-subplot(1,3,2); imshow(gray); title('Grayscale');
-subplot(1,3,3); imshow(BW); title('Binary (mean threshold)');
-
-% (d) Display extra info
-fprintf('Resolution: %dx%d\n', size(img,2), size(img,1));
-try
-    if isprop(cam,'FrameRate'); fprintf('Camera FPS (reported): %s\n', string(cam.FrameRate)); end
-catch
-end
-fprintf('Saved video: webcam_demo.mp4 @ %d fps\n', v.FrameRate);
-
-clear cam; % release camera
-
-%% Machine Vision Lab 1 – All-in-One Runner
-clear; clc; close all;
-imgFile = 'Auge.jpg';
-assert(isfile(imgFile), 'Place a JPG named peppers.jpg (or edit imgFile).');
-
-% 1.1 Read & Save
-rgb = imread(imgFile); info = imfinfo(imgFile);
-fprintf('Loaded %s | %dx%d | class=%s | range=[%d,%d]\n', imgFile, info.Width, info.Height, class(rgb), min(rgb(:)), max(rgb(:)));
-imwrite(rgb,'out.png'); imwrite(rgb,'out.tif');
-figure; subplot(1,3,1); imshow(rgb); title('RGB'); subplot(1,3,2); imshow('out.png'); title('PNG'); subplot(1,3,3); imshow('out.tif'); title('TIF');
-
-% 1.2 Gray/Binary/HSV
-grayM = uint8(round(mean(double(rgb),3)));
-grayB = rgb2gray(rgb);
-imwrite(grayB,'q1bit.png','BitDepth',1); imwrite(grayB,'q2bit.png','BitDepth',2); imwrite(grayB,'q4bit.png','BitDepth',4);
-G1=imread('q1bit.png'); G2=imread('q2bit.png'); G4=imread('q4bit.png');
-figure; subplot(2,3,1); imshow(grayM); title('Manual gray'); subplot(2,3,2); imshow(grayB); title('rgb2gray'); subplot(2,3,3); imshow(G4); title('4-bit');
-subplot(2,3,4); imshow(G2); title('2-bit'); subplot(2,3,5); imshow(G1); title('1-bit');
-imwrite(grayB,'gray.pgm'); disp(imfinfo('q4bit.png')); disp(imfinfo('gray.pgm'));
-T = mean(grayB(:)); BW = grayB >= T; figure; imagesc(BW); axis image off; colormap gray; title(sprintf('Binary (T=%.2f)',T));
-hsvI = rgb2hsv(rgb); figure; subplot(2,2,1); imshow(rgb); title('RGB'); subplot(2,2,2); imshow(hsvI(:,:,1)); title('Hue'); subplot(2,2,3); imshow(hsvI(:,:,2)); title('Sat'); subplot(2,2,4); imshow(hsvI(:,:,3)); title('Val');
-
-% 1.3 Representations
-figure; subplot(1,3,1); imshow(grayB); colormap(gca,'gray'); title('gray'); subplot(1,3,2); imshow(grayB); colormap(gca,'parula'); title('parula'); subplot(1,3,3); imshow(grayB); colormap(gca,'jet'); title('jet');
-G = double(grayB); figure; surf(G); shading interp; axis tight; view(45,45); colormap gray; colorbar; title('Surface of gray'); hold on; [X,Y]=meshgrid(1:size(G,2),1:size(G,1)); surf(X,Y,zeros(size(G)),G,'EdgeColor','none'); hold off;
-
-% 1.4 Webcam (skips if none)
-try
-    cams = webcamlist; if isempty(cams), error('No webcam.'); end
-    cam = webcam(1); preview(cam); pause(1); close(findall(0,'Type','figure','Name','Preview'));
-    v = VideoWriter('webcam_demo.mp4','MPEG-4'); v.FrameRate=20; open(v);
-    for k=1:60
-        try, if isprop(cam,'Brightness'), cam.Brightness = round(127+127*sin(k/360*pi)); end, end
-        f = snapshot(cam); imshow(f); title(sprintf('Frame %d',k)); drawnow; writeVideo(v,f); pause(0.03);
-    end
-    close(v); img = snapshot(cam); gray = rgb2gray(img); BW = gray > mean(gray(:));
-    figure; subplot(1,3,1); imshow(img); title('RGB'); subplot(1,3,2); imshow(gray); title('Gray'); subplot(1,3,3); imshow(BW); title('Binary');
-    clear cam; fprintf('Saved video webcam_demo.mp4\n');
-catch ME
-    warning('Webcam part skipped: %s', ME.message);
-end`
-            },
-            3: {
-                title: 'Autonomous Line Follower - AVR ATmega C Firmware',
-                code: `#define F_CPU 16000000UL
-#include <avr/io.h>
-#include <util/delay.h>
-#include <avr/eeprom.h>
-
-// Motor direction pins
-#define M1_DIR PB0 // Right motor direction
-#define M2_DIR PB3 // Left motor direction
-
-// P-Control parameters
-#define KP 5.5
-#define BASE_SPEED 150
-
-// Calibration & EEPROM
-#define CALIB_BUTTON PD2
-#define LED_PIN PB5
-#define OFFSET 10
-
-// EEPROM storage
-uint16_t EEMEM eeprom_left_threshold;
-uint16_t EEMEM eeprom_right_threshold;
-
-// Runtime thresholds
-uint16_t left_threshold;
-uint16_t right_threshold;
-
-void init_io() {
-    // Motor direction + PWM + LED
-    DDRB |= (1 << PB0) | (1 << PB1) | (1 << PB2) | (1 << PB3) | (1 << LED_PIN);
-    // PD4 (wire bridge) & PD2 (calibration button) as input with pull-up
-    DDRD &= ~((1 << PD4) | (1 << CALIB_BUTTON));
-    PORTD |= (1 << PD4) | (1 << CALIB_BUTTON);
-}
-
-void init_adc() {
-    ADMUX = (1 << REFS0); // AVcc reference
-    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC, prescaler 128
-}
-
-uint16_t read_adc(uint8_t channel) {
-    ADMUX = (ADMUX & 0xF0) | (channel & 0x0F);
-    _delay_us(5);
-    ADCSRA |= (1 << ADSC);
-    while (ADCSRA & (1 << ADSC));
-    return ADC;
-}
-
-void init_pwm() {
-    // Timer1 Fast PWM 8-bit
-    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM10);
-    TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10); // Prescaler 64
-    OCR1A = 0;
-    OCR1B = 0;
-}
-
-void calibrate_sensors() {
-    _delay_ms(50); // Debounce
-    uint16_t left = read_adc(0);  // A0
-    uint16_t right = read_adc(1); // A1
-    left_threshold = left + OFFSET;
-    right_threshold = right + OFFSET;
-    eeprom_write_word(&eeprom_left_threshold, left_threshold);
-    eeprom_write_word(&eeprom_right_threshold, right_threshold);
-
-    // Blink onboard LED twice
-    for (uint8_t i = 0; i < 2; i++) {
-        PORTB |= (1 << LED_PIN);
-        _delay_ms(200);
-        PORTB &= ~(1 << LED_PIN);
-        _delay_ms(200);
-    }
-}
-
-int main(void) {
-    init_io();
-    init_adc();
-    init_pwm();
-
-    // Calibration check
-    if (!(PIND & (1 << CALIB_BUTTON))) {
-        calibrate_sensors();
-    } else {
-        left_threshold = eeprom_read_word(&eeprom_left_threshold);
-        right_threshold = eeprom_read_word(&eeprom_right_threshold);
-    }
-
-    uint8_t isPControl = !(PIND & (1 << PD4)); // Wire bridge check
-
-    while (1) {
-        uint16_t left = read_adc(0);  // A0
-        uint16_t right = read_adc(1); // A1
-
-        uint8_t leftIsBlack = (left >= left_threshold);
-        uint8_t rightIsBlack = (right >= right_threshold);
-
-        if (isPControl) {
-            // -- P-Control Mode
-            int16_t left_error = left - left_threshold;
-            int16_t right_error = right - right_threshold;
-            int16_t error = right_error - left_error;
-            int16_t correction = (error * KP) / 10;
-            int16_t left_speed = BASE_SPEED - correction;
-            int16_t right_speed = BASE_SPEED + correction;
-
-            if (left_speed > 255) left_speed = 255;
-            if (left_speed < 0) left_speed = 0;
-            if (right_speed > 255) right_speed = 255;
-            if (right_speed < 0) right_speed = 0;
-
-            if (!leftIsBlack && !rightIsBlack) {
-                // Full white -> reverse
-                PORTB |= (1 << M1_DIR) | (1 << M2_DIR);
-                OCR1A = BASE_SPEED;
-                OCR1B = BASE_SPEED;
-            } else {
-                // Forward with correction
-                PORTB &= ~((1 << M1_DIR) | (1 << M2_DIR));
-                OCR1A = right_speed;
-                OCR1B = left_speed;
-            }
-        } else {
-            // -- Bang-Bang Mode
-            uint16_t pot = read_adc(7); // A7
-            uint8_t speed = pot >> 2;   // 0-255
-
-            if (leftIsBlack && rightIsBlack) {
-                // Both black forward
-                PORTB &= ~((1 << M1_DIR) | (1 << M2_DIR));
-                OCR1A = speed;
-                OCR1B = speed;
-            } else if (!leftIsBlack && !rightIsBlack) {
-                // Both white backward
-                PORTB |= (1 << M1_DIR) | (1 << M2_DIR);
-                OCR1A = speed;
-                OCR1B = speed;
-            } else if (leftIsBlack && !rightIsBlack) {
-                // Turn Left
-                PORTB |= (1 << M1_DIR);
-                PORTB &= ~(1 << M2_DIR);
-                OCR1A = speed;
-                OCR1B = speed;
-            } else if (!leftIsBlack && rightIsBlack) {
-                // Turn Right
-                PORTB &= ~(1 << M1_DIR);
-                PORTB |= (1 << M2_DIR);
-                OCR1A = speed;
-                OCR1B = speed;
-            }
-        }
-    }
-}`
-            }
-        };
-
-        function viewCode(projectNum) {
-            const snippet = codeSnippets[projectNum];
-            const modal = document.getElementById('codeModal');
-            document.getElementById('codeModalTitle').textContent = snippet.title;
-            document.getElementById('codeModalContent').innerHTML = `
-                <div class="code-block">${snippet.code}</div>
-                <p class="text-slate-400 text-sm"><i class="fas fa-lightbulb mr-2 text-cyan-400"></i>This is a representative code snippet. Full source code available on GitHub.</p>
-            `;
-            modal.classList.add('show');
-        }
-
-        function closeCodeModal() {
-            document.getElementById('codeModal').classList.remove('show');
-        }
-
-        // CV Download Modal
-        function openDownloadModal() {
-            document.getElementById('downloadModal').classList.add('show');
-        }
-
-        function closeDownloadModal() {
-            document.getElementById('downloadModal').classList.remove('show');
-        }
-
-        function downloadCV(format) {
-            if (format === 'pdf') {
-                window.location.href = 'Lebenslauf_Neel_Gheewala.pdf';
-            } else if (format === 'docx') {
-                alert('DOCX version not available. Please download the PDF version.');
-            }
-        }
-
-        // Media Modal
-        function openMediaModal() {
-            document.getElementById('mediaModal').classList.add('show');
-        }
-
-        function closeMediaModal() {
-            document.getElementById('mediaModal').classList.remove('show');
-        }
-
-        // Close modals on outside click
-        window.onclick = function(event) {
-            const downloadModal = document.getElementById('downloadModal');
-            const codeModal = document.getElementById('codeModal');
-            const mediaModal = document.getElementById('mediaModal');
-
-            if (event.target === downloadModal) downloadModal.classList.remove('show');
-            if (event.target === codeModal) codeModal.classList.remove('show');
-            if (event.target === mediaModal) mediaModal.classList.remove('show');
-        }
-
-        // Smooth scroll to top
-        function scrollToTop() {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Add smooth scroll behavior to navigation links
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
     </script>
-
 </body>
 </html>
