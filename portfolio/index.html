@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neelkumar Gheewala | Robotics Engineering Portfolio</title>
+    <title>Neel GHEEWALA | Robotics Engineering Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -323,16 +323,16 @@
                 <!-- Left: Profile Info -->
                 <div>
                     <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">
-                        Neelkumar<br>Kamleshbhai<br>Gheewala
+                        Neel GHEEWALA
                     </h1>
                     <p class="text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent font-semibold mb-4">
-                        Robotics Engineering Student
+                        Robotics Engineer
                     </p>
                     <p class="text-lg text-slate-300 mb-2">
                         <i class="fas fa-graduation-cap mr-2"></i> B.Eng. Robotics (5th Semester)
                     </p>
                     <p class="text-lg text-slate-300 mb-2">
-                        <i class="fas fa-map-marker-alt mr-2"></i> Schweinfurt, Bavaria, Germany
+                        <i class="fas fa-map-marker-alt mr-2"></i> Schweinfurt Würzburg
                     </p>
                     <p class="text-slate-400 mb-6 max-w-md">
                         Specializing in Machine Vision, Embedded Systems & Automation. Passionate about industrial, mobile, and humanoid robotics with hands-on experience in C++, MATLAB, and RoboDK.
@@ -378,9 +378,7 @@
 
                 <!-- Right: Profile Image -->
                 <div class="flex justify-center md:justify-end">
-                    <div class="profile-image">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="IMG_20260319_001332_edit_311779287606428.jpg" alt="Neel GHEEWALA" class="profile-image" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 40px rgba(79, 172, 254, 0.3); border: 3px solid rgba(79, 172, 254, 0.5);">
                 </div>
             </div>
         </div>
@@ -395,7 +393,7 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <p class="text-slate-300 leading-relaxed mb-6 text-lg">
-                        I'm a 5th-semester Robotics Engineering student at Technische Hochschule Würzburg-Schweinfurt, actively seeking internship opportunities in Bavaria. My journey in robotics combines theoretical expertise with hands-on practical experience.
+                        I'm a 5th-semester Robotics Engineering student at Technische Hochschule Würzburg-Schweinfurt, actively seeking internship opportunities in Germany. My journey in robotics combines theoretical expertise with hands-on practical experience.
                     </p>
                     <p class="text-slate-300 leading-relaxed mb-6 text-lg">
                         I have a strong interest in industrial, mobile, and humanoid robotics, as well as machine learning and image processing. Through academic projects, I've developed practical skills in C++, embedded systems, RoboDK simulation, and MATLAB machine vision.
@@ -674,7 +672,7 @@
                     <div class="space-y-2">
                         <p class="text-slate-300">• <strong>Chess 960</strong> - Competitive variant chess</p>
                         <p class="text-slate-300">• <strong>Cooking</strong> - Exploring culinary traditions</p>
-                        <p class="text-slate-300">• <strong>Traveling</strong> - Exploring Bavaria & beyond</p>
+                        <p class="text-slate-300">• <strong>Traveling</strong> - Exploring Germany & beyond</p>
                         <p class="text-slate-300">• <strong>Robotics Communities</strong> - Networking & knowledge sharing</p>
                         <p class="text-slate-300">• <strong>Tech Innovation</strong> - Following emerging robotics trends</p>
                     </div>
@@ -715,7 +713,7 @@
                 <div>
                     <p class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-2">NG</p>
                     <p class="text-slate-400">Robotics Engineering Student</p>
-                    <p class="text-slate-400">Schweinfurt, Bavaria, Germany</p>
+                    <p class="text-slate-400">Schweinfurt Würzburg</p>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">Quick Links</h4>
@@ -741,7 +739,7 @@
                 </div>
             </div>
             <div class="border-t border-slate-700 pt-8 text-center text-slate-500">
-                <p>© 2025 Neelkumar Kamleshbhai Gheewala. All rights reserved.</p>
+                <p>© 2025 Neel GHEEWALA. All rights reserved.</p>
                 <p class="text-sm mt-2">Designed & Built with <i class="fas fa-heart text-red-500"></i> for Robotics Excellence</p>
             </div>
         </div>
@@ -889,7 +887,7 @@ title('Original RGB (imread)');
 info = imfinfo(jpgFile)
 img_width = info.Width
 img_height = info.Height
-fprintf('Width x Height = %d x %d\\n', img_width, img_height);
+fprintf('Width x Height = %d x %d\n', img_width, img_height);
 
 % (c) Save in other formats and view
 imwrite(rgb,'sample_png.png');
@@ -1018,12 +1016,12 @@ subplot(1,3,2); imshow(gray); title('Grayscale');
 subplot(1,3,3); imshow(BW); title('Binary (mean threshold)');
 
 % (d) Display extra info
-fprintf('Resolution: %dx%d\\n', size(img,2), size(img,1));
+fprintf('Resolution: %dx%d\n', size(img,2), size(img,1));
 try
-    if isprop(cam,'FrameRate'); fprintf('Camera FPS (reported): %s\\n', string(cam.FrameRate)); end
+    if isprop(cam,'FrameRate'); fprintf('Camera FPS (reported): %s\n', string(cam.FrameRate)); end
 catch
 end
-fprintf('Saved video: webcam_demo.mp4 @ %d fps\\n', v.FrameRate);
+fprintf('Saved video: webcam_demo.mp4 @ %d fps\n', v.FrameRate);
 
 clear cam; % release camera
 
@@ -1034,7 +1032,7 @@ assert(isfile(imgFile), 'Place a JPG named peppers.jpg (or edit imgFile).');
 
 % 1.1 Read & Save
 rgb = imread(imgFile); info = imfinfo(imgFile);
-fprintf('Loaded %s | %dx%d | class=%s | range=[%d,%d]\\n', imgFile, info.Width, info.Height, class(rgb), min(rgb(:)), max(rgb(:)));
+fprintf('Loaded %s | %dx%d | class=%s | range=[%d,%d]\n', imgFile, info.Width, info.Height, class(rgb), min(rgb(:)), max(rgb(:)));
 imwrite(rgb,'out.png'); imwrite(rgb,'out.tif');
 figure; subplot(1,3,1); imshow(rgb); title('RGB'); subplot(1,3,2); imshow('out.png'); title('PNG'); subplot(1,3,3); imshow('out.tif'); title('TIF');
 
@@ -1064,7 +1062,7 @@ try
     end
     close(v); img = snapshot(cam); gray = rgb2gray(img); BW = gray > mean(gray(:));
     figure; subplot(1,3,1); imshow(img); title('RGB'); subplot(1,3,2); imshow(gray); title('Gray'); subplot(1,3,3); imshow(BW); title('Binary');
-    clear cam; fprintf('Saved video webcam_demo.mp4\\n');
+    clear cam; fprintf('Saved video webcam_demo.mp4\n');
 catch ME
     warning('Webcam part skipped: %s', ME.message);
 end`

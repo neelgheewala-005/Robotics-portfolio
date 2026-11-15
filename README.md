@@ -1,25 +1,17 @@
-# Neelkumar Gheewala | Robotics & Systems Engineer
+# Neel GHEEWALA | Robotics Engineer
 
 <div align="center">
 
 [![Live Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-Website-00B4D8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://neelgheewala-005.github.io/Robotics-portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Neel_Gheewala-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/neel-gheewala-9b8714381)
 [![Email](https://img.shields.io/badge/Email-gheewalaneel005%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gheewalaneel005@gmail.com)
-[![Location](https://img.shields.io/badge/Location-Bavaria%2C_Germany-2A9D8F?style=for-the-badge&logo=googlemaps&logoColor=white)](https://maps.google.com)
+[![Location](https://img.shields.io/badge/Location-Germany-2A9D8F?style=for-the-badge&logo=googlemaps&logoColor=white)](https://maps.google.com)
 
 <br/>
 
-```text
-  ___      _           _   _          ___            _                    
- | _ \___ | |__  ___ _| |_(_)__ ___  | __|_ _  __ _ (_)_ _  ___ ___ _ _  
- |   / _ \| '_ \/ _ \  _| | _ (_-<  | _|| ' \/ _` || | ' \/ -_) -_) '_| 
- |_|_\___/|_.__/\___/\__|_|___/__/  |___|_||_\__, |/ \_\_\___\___|_|   
-                                             |___/__/                     
-```
+***Robotics Engineer | B.Eng. Student @ THWS Schweinfurt Würzburg***
 
-***Systems Engineer | B.Eng. Robotics | B.Eng. Student @ THWS Bavaria 🇩🇪***
-
-**⚡ Goal:** Summer 2026 internship in ADAS, signal processing, automation, or industrial robotics in Bavaria.
+**⚡ Goal:** Summer 2026 Internship in ADAS, signal processing, automation, or industrial robotics in Germany.
 
 [![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)](https://isocpp.org)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
@@ -31,44 +23,9 @@
 
 ---
 
-## 🔬 Core Technical Proficiencies
+## 🔬 Featured Projects
 
-<div align="center">
-
-| Domain | Technologies & Frameworks |
-| :--- | :--- |
-| **Robotics & Simulation** | `RoboDK` `KUKA.SIM` `Universal Robots (UR5e)` `Forward/Inverse Kinematics` `D‑H Parameterization` `Trajectory Planning` `Singularity Avoidance` |
-| **Programming** | `C++` `Embedded C` `Python` `MATLAB` |
-| **Computer Vision** | `MATLAB Image Processing Toolbox` `OpenCV` `HSV Segmentation` `Planar Homography` `Morphological Filters` |
-| **Embedded & Hardware** | `ATmega328P` `Timer/PWM Register‑Level Drivers` `10‑Bit ADC Multiplexing` `EEPROM` `LT‑SPICE Circuit Simulation` |
-| **Control Systems** | `Continuous P‑Control` `PID Gain Optimization` `Bang‑Bang Control` `Trajectory Filtering` |
-| **Developer Tools** | `Git` `GitHub Pages` `VS Code` `Atmel Studio` `Linux Bash` |
-
-</div>
-
----
-
-## 📁 Repository Structure (Clean — No Personal Files in Repo)
-
-```text
-Robotics-portfolio/
-├── index.html                      # Interactive portfolio (Tailwind CSS, Vanilla JS)
-├── Lebenslauf_Neel_Gheewala.pdf    # ← Hosted on live site, NOT committed to this repo
-├── kuka_frame.rdk                  # ← Hosted on live site, NOT committed to this repo
-├── src/
-│   ├── vision_pnp.m                # Complete MATLAB Machine‑Vision pipeline
-│   └── line_follower.c             # Real‑time AVR ATmega328P firmware
-├── .nojekyll                       # Ensures static assets load cleanly
-└── README.md                       # You are here
-```
-
-> **Note:** Personal portrait (`IMG_20260319_001332_…jpg`) and the PDF curriculum vitae (`Lebenslauf_Neel_Gheewala.pdf`) have been **removed from the repository** to keep the source clean. They live on your [live portfolio](https://neelgheewala-005.github.io/Robotics-portfolio/) and [LinkedIn](https://linkedin.com/in/neelgheewala-9b8714381).
-
----
-
-## 🚀 Featured Projects
-
-### 1️⃣ KUKA 6‑DOF Industrial Robot Simulation & Path Planning
+### 1️⃣ KUKA 6-DOF Industrial Robot Simulation & Path Planning
 
 <p align="center">
   <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/kuka_frame.rdk">
@@ -167,8 +124,8 @@ All project demonstrations (KUKA motion validation, vision‑system runtime, lin
 
 ## 📬 Contact & Inquiries
 
-- **Candidate:** Neelkumar Kamleshbhai Gheewala  
-- **Degree:** B.Eng. Robotics Engineering (5th Semester), THWS Schweinfurt  
+- **Candidate:** Neel GHEEWALA  
+- **Degree:** B.Eng. Robotics Engineering (5th Semester), THWS Schweinfurt Würzburg  
 - **Email:** [gheewalaneel005@gmail.com](mailto:gheewalaneel005@gmail.com)  
 - **Phone:** +49 176 247 04085  
 - **LinkedIn:** [linkedin.com/in/neel-gheewala-9b8714381](https://linkedin.com/in/neel-gheewala-9b8714381)  
@@ -176,5 +133,5 @@ All project demonstrations (KUKA motion validation, vision‑system runtime, lin
 ---
 
 <div align="center">
-<sub>Designed with engineering rigor & precision by <b>Neelkumar Gheewala</b> • Schweinfurt, Bavaria, Germany</sub>
+<sub>Designed with engineering rigor & precision by <b>Neel GHEEWALA</b> • Schweinfurt, Germany</sub>
 </div>
