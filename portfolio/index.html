@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neel Gheewala | Robotics Engineer Portfolio</title>
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-m.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-ruby.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-toml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-yaml.min.js"></script>
+    <script>Prism.highlightAll();</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -215,7 +229,7 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <a href="#" class="text-2xl font-bold text-white">Neel Gheewala</a>
             <div class="flex items-center gap-6">
                 <a href="#projects" class="text-sm text-white/60 hover:text-white transition">Projects</a>
@@ -341,7 +355,7 @@
                     <ul class="list-disc text-white/60 space-y-2">
                         <li>Engineered CNY70 reflective sensor array with 10-bit ADC conversion at 125 kHz sampling</li>
                         <li>Implemented dual control modes: bang-bang for coarse positioning and proportional P-control for fine trajectory tracking</li>
-                        <li>Configured 16-bit Timer/Counter1 in Fast PWM mode (976.56 Hz) driving H-bridge motor drivers</li>
+                        <li>Configured 16-bit Timer/Counter1 in Fast PWM mode (976.56 Hz) driving H-bridge motor channels via output compare registers OCR1A and OCR1B</li>
                         <li>Developed sensor calibration routine with EEPROM persistence for threshold values</li>
                         <li>Optimized interrupt service routines to minimize jitter and ensure deterministic motor response</li>
                     </ul>
@@ -407,6 +421,11 @@
                 }
             });
         });
+
+        // Initialize Prism.js syntax highlighting
+        if (window.Prism) {
+            Prism.highlightAll();
+        }
     </script>
 </body>
 </html>
