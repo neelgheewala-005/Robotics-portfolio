@@ -334,10 +334,12 @@
                     <p class="text-white/60 mt-2">Enables reliable robotic manipulation of arbitrarily colored objects in unstructured environments. Sub-centimeter precision critical for downstream adhesive dispensing and quality inspection.</p>
 
                     <div class="mt-4">
-                        <pre><code class="language-matlab">% MATLAB Vision Pipeline - Color-based Object Recognition
+                        <h4 class="font-bold text-white mb-2">Implementation Snippet (MATLAB)</h4>
+                        <pre class="code-block"><code class="language-matlab">% MATLAB Vision Pipeline - Color-based Object Recognition
 % HSV color space segmentation for object detection
+img = imread('camera_feed.png');
+hsv = rgb2hsv(img);
 color = [0.5 0.3 0.8]; % Target color in HSV
-hsv = rgb2hsv(imread('camera_feed.png'));
 mask = hsv(:,:,1) > color(1) - 0.1 & hsv(:,:,2) > color(2) - 0.1 & hsv(:,:,3) > color(3) - 0.1;
 
 % Extract centroid and orientation
@@ -384,9 +386,12 @@ orientation = stats(1).Orientation;
                         <li>Optimized interrupt service routines to minimize jitter and ensure deterministic motor response</li>
                     </ul>
 
-                    <h4 class="font-bold text-white mt-4">CODE SNIPPET</h4>
-                    <div class="mt-2">
-                        <pre><code class="language-c">/* Arduino Line Follower - Main Control Loop */
+                    <h4 class="font-bold text-white mt-4">WHY</h4>
+                    <p class="text-white/60 mt-2">Fundamental platform for understanding closed-loop control theory in embedded systems. Demonstrates real-time signal processing constraints and trade-offs. Proven track record of stable trajectory tracking (>95% success rate).</p>
+
+                    <div class="mt-4">
+                        <h4 class="font-bold text-white mb-2">Implementation Snippet (C)</h4>
+                        <pre class="code-block"><code class="language-c">/* Arduino Line Follower - Main Control Loop */
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -464,9 +469,6 @@ uint16_t read_sensor(uint8_t channel) {
 }
 </code></pre>
                     </div>
-
-                    <h4 class="font-bold text-white mt-4">WHY</h4>
-                    <p class="text-white/60 mt-2">Fundamental platform for understanding closed-loop control theory in embedded systems. Demonstrates real-time signal processing constraints and trade-offs. Proven track record of stable trajectory tracking (>95% success rate).</p>
 
                     <div class="mt-6">
                         <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/src/line_follower.c" class="btn-primary">View Project →</a>
