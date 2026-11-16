@@ -333,6 +333,30 @@
                     <h4 class="font-bold text-white mt-4">WHY</h4>
                     <p class="text-white/60 mt-2">Enables reliable robotic manipulation of arbitrarily colored objects in unstructured environments. Sub-centimeter precision critical for downstream adhesive dispensing and quality inspection.</p>
 
+                    <div class="mt-4">
+                        <pre><code class="language-matlab">% MATLAB Vision Pipeline - Color-based Object Recognition
+% HSV color space segmentation for object detection
+color = [0.5 0.3 0.8]; % Target color in HSV
+hsv = rgb2hsv(imread('camera_feed.png'));
+mask = hsv(:,:,1) > color(1) - 0.1 & hsv(:,:,2) > color(2) - 0.1 & hsv(:,:,3) > color(3) - 0.1;
+
+% Extract centroid and orientation
+mask = bwlabel(mask);
+stats = regionprops(mask, 'Centroid', 'Orientation');
+centroid = stats(1).Centroid;
+orientation = stats(1).Orientation;
+
+% Homography transformation to robot world coordinates
+% H = [h11 h12 h13; h21 h22 h23; h31 h32 h33];
+% world_coords = H * [u; v; 1];
+
+% Integrate with RoboDK
+% robot = RKD('192.168.1.100');
+% RKD.MoveL(robot, world_coords(1), world_coords(2), world_coords(3), ...
+%           world_coords(4), world_coords(5), world_coords(6));
+</code></pre>
+                    </div>
+
                     <div class="mt-6">
                         <a href="https://github.com/neelgheewala-005/Robotics-portfolio/blob/main/src/vision_pnp.m" class="btn-primary">View Project →</a>
                         <a href="https://github.com/neelgheewala-005/Robotics-portfolio/tree/main/src/vision_pnp.m" class="btn-secondary">GitHub Source</a>
@@ -359,6 +383,87 @@
                         <li>Developed sensor calibration routine with EEPROM persistence for threshold values</li>
                         <li>Optimized interrupt service routines to minimize jitter and ensure deterministic motor response</li>
                     </ul>
+
+                    <h4 class="font-bold text-white mt-4">CODE SNIPPET</h4>
+                    <div class="mt-2">
+                        <pre><code class="language-c">/* Arduino Line Follower - Main Control Loop */
+#include <avr/io.h>
+#include <util/delay.h>
+
+// CNY70 sensor thresholds (calibrated)
+#define LEFT_THRESHOLD  45
+#define MIDDLE_THRESHOLD 50
+#define RIGHT_THRESHOLD 45
+
+// Motor PWM pins
+#define LEFT_PWM 5
+#define RIGHT_PWM 6
+
+// Motor direction pins
+#define LEFT_DIR PORTB0
+#define RIGHT_DIR PORTB1
+
+void setup() {
+    // Set motor pins as output
+    DDRD |= (1 << LEFT_PWM) | (1 << RIGHT_PWM);
+    DDRB |= (1 << LEFT_DIR) | (1 << RIGHT_DIR);
+
+    // Configure Timer1 for Fast PWM, 976.56 Hz
+    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11);
+    TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS10);
+    ICR1 = 15999; // 16MHz / 1024 / 976.56Hz - 1
+
+    // Initialize sensors (ADC setup would go here)
+}
+
+void loop() {
+    // Read CNY70 sensor values via ADC
+    uint16_t left = read_sensor(0);
+    uint16_t middle = read_sensor(1);
+    uint16_t right = read_sensor(2);
+
+    // Bang-bang control
+    if (left < LEFT_THRESHOLD && right < RIGHT_THRESHOLD) {
+        // On line - go straight
+        set_motor_speed(100, 100);
+    } else if (left < LEFT_THRESHOLD) {
+        // Left sensor sees line - turn right
+        set_motor_speed(50, 100);
+    } else if (right < RIGHT_THRESHOLD) {
+        // Right sensor sees line - turn left
+        set_motor_speed(100, 50);
+    } else {
+        // Off line - stop
+        set_motor_speed(0, 0);
+    }
+}
+
+void set_motor_speed(uint8_t left_speed, uint8_t right_speed) {
+    OCR1A = left_speed * 159.99; // Scale to ICR1 range
+    OCR1B = right_speed * 159.99;
+
+    // Set direction based on speed sign
+    if (left_speed > 0) {
+        PORTB |= (1 << LEFT_DIR);
+    } else {
+        PORTB &= ~(1 << LEFT_DIR);
+    }
+    if (right_speed > 0) {
+        PORTB |= (1 << RIGHT_DIR);
+    } else {
+        PORTB &= ~(1 << RIGHT_DIR);
+    }
+}
+
+uint16_t read_sensor(uint8_t channel) {
+    // ADC single-ended reading on channel
+    ADMUX = (1 << REFS0) | channel;
+    ADCSRA |= (1 << ADSC); // Start conversion
+    while (ADCSRA & (1 << ADSC)); // Wait for completion
+    return ADC;
+}
+</code></pre>
+                    </div>
 
                     <h4 class="font-bold text-white mt-4">WHY</h4>
                     <p class="text-white/60 mt-2">Fundamental platform for understanding closed-loop control theory in embedded systems. Demonstrates real-time signal processing constraints and trade-offs. Proven track record of stable trajectory tracking (>95% success rate).</p>
